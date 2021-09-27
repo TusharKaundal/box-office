@@ -12,7 +12,7 @@ import { useShow } from '../misc/custom-hooks';
 const Show = () => {
   const { id } = useParams();
 
-  const [show, isLoading, error] = useShow(id);
+  const { show, isLoading, error } = useShow(id);
 
   if (isLoading) {
     return <div>Data is being loaded</div>;
