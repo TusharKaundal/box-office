@@ -55,14 +55,16 @@ const Home = () => {
 
   return (
     <MainPageLayout>
-      <label htmlFor="label" />
-      <SearchInput
-        id="label"
-        type="text"
-        onKeyDown={onKeyDown}
-        onChange={onInputChange}
-        value={input}
-      />
+      <label>
+        <SearchInput
+          id="label"
+          type="text"
+          onKeyDown={onKeyDown}
+          onChange={onInputChange}
+          value={input}
+        />
+      </label>
+
       <RadioInputsWrapper>
         <div>
           <CustomRadio

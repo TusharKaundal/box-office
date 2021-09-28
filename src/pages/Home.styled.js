@@ -11,11 +11,11 @@ export const SearchInput = styled.input`
   box-shadow: 0px 0px 10px 0px rgba(219, 219, 219, 0.5);
   font-size: 14px;
   border-radius: 12px;
-  color: #8d8d8d;
+  color: blue;
 
   &::placeholder {
     font-weight: 300;
-    color: #8d8d8d;
+    color: blue;
   }
 `;
 
