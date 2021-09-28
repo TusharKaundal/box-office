@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useCallback, useState } from 'react';
 import ActorGrid from '../components/actor/ActorGrid';
 import CustomRadio from '../components/CustomRadio';
@@ -54,7 +55,9 @@ const Home = () => {
 
   return (
     <MainPageLayout>
+      <label htmlFor="label" />
       <SearchInput
+        id="label"
         type="text"
         onKeyDown={onKeyDown}
         onChange={onInputChange}
