@@ -7,25 +7,27 @@ import { useShows } from '../../misc/custom-hooks';
 
 const ShowGrid = ({ data }) => {
   const [starredShows, dispatchStarred] = useShows();
+  const onStarClick = useCallback(
+    (showId, isStarred) => {
+      if (isStarred) {
+        dispatchStarred({ type: 'REMOVE', showId });
+      } else {
+        dispatchStarred({ type: 'ADD', showId });
+      }
+    },
+    [dispatchStarred]
+  );
   return (
     <FlexGrid>
       {data.map(({ show }) => {
-        const isStarred = starredShows.includes(show.id);
-        const onStartClick = useCallback(() => {
-          if (isStarred) {
-            dispatchStarred({ type: 'REMOVE', showID: show.id });
-          } else {
-            dispatchStarred({ type: 'ADD', showID: show.id });
-          }
-        }, [isStarred, show.id]);
         return (
           <ShowCard
             id={show.id}
             name={show.name}
             image={show.image ? show.image.medium : IMAGE_NOT_FOUND}
             summary={show.summary}
-            onStarClick={onStartClick}
-            isStarred={isStarred}
+            onStarClick={onStarClick}
+            isStarred={starredShows.includes(show.id)}
           />
         );
       })}
